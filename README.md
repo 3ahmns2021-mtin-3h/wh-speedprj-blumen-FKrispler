@@ -4,10 +4,10 @@
 Introduction/Project summary 
 
 ### Development platform: 
-(OS, Unity Version, Visual Studio Version, used SDKs)
+Windows 10, Unity 2020f15.1, Visual Studio 2019
 
 ### Target platform: 
-WebGL, Mobile, VR Device incl. reference resolution 
+WebGL
 
 ### Visuals: 
 Screenshots (concept and experience), Video
@@ -24,5 +24,6 @@ incl. progress in percent
 ### Limitations: 
 
 ### Lessons Learned: 
+Arrays
 
-Copyright by you :)
+Copyright by FKrispler

@@ -9,6 +9,8 @@ public class Blumen : MonoBehaviour
     private bool isSpacePressed, isKPressed;
 
     public float startTime, stopTime, timer;
+    public GameObject prefabBlume;
+    public GameObject parentObj;
     bool isTimerRunning;
 
     // Start is called before the first frame update
@@ -101,7 +103,7 @@ public class Blumen : MonoBehaviour
     {
         for( int i = 0; i < numberBlumen; i++)
         {
-            Instantiate(prefabBlumen; i++)
+            Instantiate(prefabBlumen, new Vector2(i * 2.0f, 0), Quaternion.identity, parentObj;
         }
     }
 }

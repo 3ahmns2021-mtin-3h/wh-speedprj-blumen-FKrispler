@@ -6,34 +6,54 @@ public class Blumen : MonoBehaviour
 {
     private int spacePress;
     private int kPress;
+    private bool isSpacePressed, isKPressed;
 
     public float startTime, stopTime, timer;
+    bool isTimerRunning;
 
-    bool istimerrunning;
     // Start is called before the first frame update
     void Start()
     {
         spacePress = 0;
         kPress = 0;
-        istimerrunning = false;
+        isTimerRunning = false;
+        isSpacePressed = isKPressed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (istimerrunning)
+        timer = stopTime + (Time.time - startTime);
+        int seconds = (int)timer % 60;
+
+        if (isTimerRunning)
+        {
+            if (isSpacePressed && seconds >= 1)
+            {
+                isSpacePressed = false;
+                TimerStop();
+                TimerReset();
+            }
+            if(isKPressed && seconds >= 1)
+            {
+
+            }
+        }
+
+        Debug.Log("Overall" + timer + "sec" + seconds);
+
+        if (isTimerRunning)
         {
             startTime = Time.time;
         }
 
-        timer = stopTime + (Time.time - startTime);
 
         // Debug.Log(timer); 
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             TimerStart();
-            Debug.Log(startTime);
+            //Debug.Log(startTime);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -53,16 +73,35 @@ public class Blumen : MonoBehaviour
 
     void TimerStart()
     {
-        startTime = Time.time;
+        if(!isTimerRunning)
+        {
+            startTime = Time.time;
+            isTimerRunning = true;
+
+            Debug.Log("in Start Time " + startTime);
+        }
     }
 
     void TimerStop()
     {
-        stopTime = Time.time;
+        Debug.Log("in Stop Timer");
+        if (isTimerRunning)
+        {
+            stopTime = Time.time;
+            isTimerRunning = false;
+        }
     }
 
     void TimerReset()
     {
         timer = startTime = stopTime = 0.0f;
+    }
+
+    public void CreateBlumen(int numberBlumen)
+    {
+        for( int i = 0; i < numberBlumen; i++)
+        {
+            Instantiate(prefabBlumen; i++)
+        }
     }
 }
